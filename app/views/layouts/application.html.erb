@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TweetScheduler</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+        <%= favicon_link_tag 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/2491px-Twitter-logo.svg.png' %>
+
+  </head>
+
+    <% if user_signed_in? %>
+
+    <%= render partial: "shared/headerAL"%>
+
+    <% else%>
+    <%= render partial: "shared/header"%>
+    <% end %>
+      <br>
+      <br>
+      <p class="notice"><%= notice %></p>
+
+      <p class="alert"><%= alert %></p>
+
+<div class="container-fluid" style="margin-top: 4px; margin-left: 30px; margin-right: 30px">
+      <div class="row">
+
+        
+        <div>
+          <%= yield %>
+        </div>
+      </div>
+
+</html>

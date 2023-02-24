@@ -1,0 +1,40 @@
+
+
+<br>
+<br>
+
+<div class="bg-white shadow sm:rounded-lg">
+  <div class="px-4 py-5 sm:p-6">
+    <h3 class="text-lg leading-6 font-medium text-gray-900">
+<%= tweet.twitter_account.id %>
+    </h3>
+    <div class="mt-2 sm:flex sm:items-start sm:justify-between">
+      <div class="max-w-xl text-sm text-gray-500">
+        <p>
+<%= tweet.body %>
+        </p>
+      </div>
+    
+      <div class="mt-5 sm:mt-0 sm:ml-6 sm:flex-shrink-0 sm:flex sm:items-center">
+        <% if tweet.published? %>
+        <div type="button" class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
+        <%= link_to "View Tweet", "https://twitter.com/#{tweet.twitter_account.username}/status/#{tweet.tweet_id}", target: :_blank %>
+        </div>
+        <% else %>
+      Scheduled for <%= l tweet.publish_at, format: :long %>
+      &nbsp;
+      <div type="button" class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
+      <%= link_to "Edit Tweet", edit_tweet_path(tweet) %>
+        </div>
+    <% end %>
+        &nbsp;
+        <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
+          Publish now
+        </button>
+      </div>
+    </div>
+  </div>
+
+ 
+</div>
+
