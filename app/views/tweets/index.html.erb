@@ -1,38 +1,21 @@
-hidden
-
-<div class="d-flex justify-content-between align-items-center">
-  <h1>Tweets</h1>
-
- 
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 
+<div class="bg-white">
+  <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <p class="mt-1 text-4xl font-extrabold text-blue-600 sm:text-5xl sm:tracking-tight lg:text-6xl">Tweets.</p>
+      <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">Schedule your tweets to be posted later.</p>
 
-<div class="md:flex md:items-center md:justify-between">
-  <div class="flex-1 min-w-0">
-    <h2 class="text-xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
-      Tweets
-    </h2>
-  </div>
-  <div class="mt-4 flex md:mt-0 md:ml-4">
-   
-    <% if current_user.twitter_accounts.none? %>
+          <% if current_user.twitter_accounts.none? %>
+          <br>
         <%= link_to "Connect your Twitter Account", "/auth/twitter", class: "btn btn-primary" %>
          <button type="button" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
       Edit
     </button>
     <% end %>
+     <% if current_user.twitter_accounts.any? %>
+         <br>
 
-    <% if current_user.twitter_accounts.any? %>
-
-    <div class="flex items-center">
-        <div class="flex-shrink-0">
           <button type="button" class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             <!-- Heroicon name: solid/plus -->
             <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -40,21 +23,116 @@ hidden
             </svg>
           <%= link_to "Schedule a Tweet", new_tweet_path, class: "btn btn-primary" %>
           </button>
-        </div>
-
       <% end %>
-
+    </div>
   </div>
+</div>
+<div class="container-fluid" style="margin-top: 4px; margin-left: 30px; margin-right: 30px">
+      <div class="row">
+<div class="d-flex justify-content-between align-items-center margin">
+<ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
+
+</ul>
 </div>
-<br>
-<br>
-<br>
+        <div>
+        </div>
+      </div>
+</div>
+</div>
+
+
+          <div class="mt-8">
+            <!-- Secondary navigation -->
+            <h3 class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider" id="desktop-teams-headline">
+              Tweet Tags - add more tags
+            </h3>
+            <div class="mt-1 space-y-1" role="group" aria-labelledby="desktop-teams-headline">
+              <a href="#" class="group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                <span class="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full" aria-hidden="true"></span>
+                <span class="truncate">
+                  Engineering
+                </span>
+              </a>
+
+              <a href="#" class="group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                <span class="w-2.5 h-2.5 mr-4 bg-green-500 rounded-full" aria-hidden="true"></span>
+                <span class="truncate">
+                  Human Resources
+                </span>
+              </a>
+
+              <a href="#" class="group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                <span class="w-2.5 h-2.5 mr-4 bg-yellow-500 rounded-full" aria-hidden="true"></span>
+                <span class="truncate">
+                  Customer Success
+                </span>
+              </a>
+            </div>
+          </div>
+
+
+
+
+      <!-- Pinned projects -->
+      <div class="px-4 mt-6 sm:px-6 lg:px-8">
+        <h2 class="text-gray-500 text-xs font-medium uppercase tracking-wide">Pinned Projects</h2>
+        <ul role="list" class="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 xl:grid-cols-4 mt-3">
+          <li class="relative col-span-1 flex shadow-sm rounded-md">
+            <div class="flex-shrink-0 flex items-center justify-center w-16 bg-pink-600 text-white text-sm font-medium rounded-l-md">
+              DS
+            </div>
+            <div class="flex-1 flex items-center justify-between border-t border-r border-b border-gray-200 bg-white rounded-r-md truncate">
+              <div class="flex-1 px-4 py-2 text-sm truncate">
+                <a href="#" class="text-gray-900 font-medium hover:text-gray-600">
+                  Tweet 1
+                </a>
+                <p class="text-gray-500">Draft</p>
+              </div>
+              <div class="flex-shrink-0 pr-2">
+                <button type="button" class="w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500" id="pinned-project-options-menu-0-button" aria-expanded="false" aria-haspopup="true">
+                  <span class="sr-only">Open options</span>
+                  <!-- Heroicon name: solid/dots-vertical -->
+                  <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
+                  </svg>
+                </button>
+
+                <!--
+                  Dropdown menu, show/hide based on menu state.
+
+                  Entering: "transition ease-out duration-100"
+                    From: "transform opacity-0 scale-95"
+                    To: "transform opacity-100 scale-100"
+                  Leaving: "transition ease-in duration-75"
+                    From: "transform opacity-100 scale-100"
+                    To: "transform opacity-0 scale-95"
+                -->
+                <div class="hidden z-10 mx-3 origin-top-right absolute right-10 top-3 w-48 mt-1 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="pinned-project-options-menu-0-button" tabindex="-1">
+                  <div class="py-1" role="none">
+                    <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="pinned-project-options-menu-0-item-0">View</a>
+                  </div>
+                  <div class="py-1" role="none">
+                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="pinned-project-options-menu-0-item-1">Removed from pinned</a>
+                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="pinned-project-options-menu-0-item-2">Share</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- More items... -->
+        </ul>
+      </div>
+
+  
+      </div>
 <br>
 <br>
 <br>
 
-</div>
-</div>
+
+
 
 <%= render @tweets %>
