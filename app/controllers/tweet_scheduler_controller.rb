@@ -12,4 +12,8 @@ class TweetSchedulerController < ApplicationController
 
     def pricing     
     end
+
+    def latest
+      
+    end
 end

@@ -2,7 +2,7 @@
 
 class TweetsController < ApplicationController
     before_action :authenticate_user!
-  #  before_action :set_twitter_account, only: [:destroy]
+    before_action :set_tweet, only: [:show, :edit, :update, :destroy]
 
     def index
         @tweets = current_user.tweets
@@ -22,19 +22,28 @@ class TweetsController < ApplicationController
     end
 
 
+    def edit
+    end
+
+    def update
+      if @tweet.update(tweet_params)
+        redirect_to tweets_path, notice: "Tweet was updated successfully"
+      else
+        render :edit
+      end
+    end
 
     def destroy
-      # @twitter_accounts = current_user.twitter_accounts.find(params[:id])
-      # @twitter_account.destroy
-     # redirect_to root_path, notice: "Successfully disconnected "
+      @tweet.destroy
+      redirect_to tweets_path, notice: "Tweet was unscheduled"
     end
 
   private
 
-  def set_twitter_account
-  #  @twitter_account = current_user.twitter_accounts.find(params[:id])
-  end
 
+  def set_tweet
+    @tweet = current_user.tweets.find(params[:id])
+  end
 
   def tweet_params
     params.require(:tweet).permit(:twitter_account_id, :body, :publish_at)

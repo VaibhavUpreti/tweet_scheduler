@@ -7,5 +7,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :tweets
   has_many :twitter_accounts
+  include SimpleDiscussion::ForumUser
 
+  def name
+    "#{first_name} #{last_name}"
+  end
 end

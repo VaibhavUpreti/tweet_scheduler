@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   root "tweet_scheduler#index"
   get 'about', to: 'tweet_scheduler#about'
   get 'pricing', to: 'tweet_scheduler#pricing'
+  get 'tos', to: 'tweet_scheduler#tos'
+  get 'privacy', to: 'tweet_scheduler#privacy'
+  get 'latest', to: 'tweet_scheduler#latest'
+
+  mount SimpleDiscussion::Engine => "/forum"
 
 
   get 'auth/twitter/callback', to: 'omniauth_callbacks#twitter'

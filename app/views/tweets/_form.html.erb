@@ -1,16 +1,30 @@
 <%= form_with model: tweet do |form| %>
-  <%= render "shared/form_errors", form: form %>
 
-  <div class="mb-3">
-    <%= form.label :twitter_account_id %>
-    <%= form.collection_select :twitter_account_id, Current.user.twitter_accounts, :id, :username, {}, { class: "form-control" } %>
-    <%= link_to "Connect your Twitter Account", "/auth/twitter" %>
-  </div>
 
-  <div class="mb-3">
-    <%= form.label :body %>
-    <%= form.text_area :body, class: "form-control" %>
-  </div>
+    <div class="sm:col-span-4">
+        <label for="username" class="block text-sm font-medium text-gray-700">
+            <%= form.label :twitter_account_id %>
+        </label>
+        <div class="mt-1 flex rounded-md shadow-sm">
+        <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+            twitter.com/
+        </span>
+            <%= form.collection_select :twitter_account_id, current_user.twitter_accounts, :id, :id, {}, { class: "form-control" } %>
+        </div>
+    </div>
+    <br>
+            <%= link_to "Add another Twitter Account", "/auth/twitter" %>
+
+    <div class="sm:col-span-6">
+        <label for="about" class="block text-sm font-medium text-gray-700">
+            <%= form.label :body %>
+        </label>
+        <div class="mt-1">
+        <%= form.text_area :body, class: "form-control" %>
+        </div>
+        <p class="mt-2 text-sm text-gray-500">Write a few sentences about yourself.</p>
+    </div>
+
 
   <div class="mb-3">
     <%= form.label :publish_at %>
@@ -19,8 +33,24 @@
     </div>
   </div>
 
-  <%= form.button "Schedule", class: "btn btn-primary" %>
+<br>
+<br>
+
+
+   <div type="submit" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+        <%= form.button "Schedule", class: "" %>
+      </div>
   <% if form.object.persisted? %>
-    <%= link_to "Delete", form.object, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
-  <% end %>
+    &nbsp;
+    &nbsp;
+    <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+    <%= link_to "Delete", form.object, method: :delete, data: {turbo: "false"}, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+      </button>
+    <% end %>
+
+   
 <% end %>
+
+</div>
+</div>
+    

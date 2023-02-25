@@ -1,13 +1,79 @@
 
 
-<div type="button" class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-  <!-- Heroicon name: solid/mail -->
-  <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-  </svg>
-<%= button_to "Connect Twitter","/auth/twitter", data: {turbo: "false"}, method: :post%>
+    <% if user_signed_in? %>
+
+ <div class="bg-white">
+      <div class="max-w-4xl mx-auto py-16 px-4 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 lg:flex lg:items-center lg:justify-between">
+        <h2 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+          <span class="block">Visit Dashboard to get started</span>
+        </h2>
+        <div class="mt-6 space-y-4 sm:space-y-0 sm:flex sm:space-x-5">
+          <a href="<%= twitter_accounts_path%>" class="flex items-center justify-center bg-gradient-to-r bg-blue-600 hover:bg-blue-600 bg-origin-border px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-s
+          text-white">
+            Visit Dashboard
+          </a>
+          <a href="<%= latest_path%>" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-blue-800 bg-indigo-50 hover:bg-indigo-100">
+            Get started
+          </a>
+        
+        </div>
+
+      </div>
+    </div>
+    <% else%>
+    <div class="bg-white">
+      <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h2 class="text-base font-semibold text-blue-600 tracking-wide uppercase">Tweet Schedule</h2>
+          <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">Easily Manage your Twitter Content.</p>
+          <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">Start building for free, then add a site plan to go live. Account plans unlock additional features.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white">
+      <div class="max-w-4xl mx-auto py-16 px-4 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 lg:flex lg:items-center lg:justify-between">
+     <div>
+  <h3 class="text-lg leading-6 font-medium text-gray-900">
+    Last 30 days
+  </h3>
+  <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
+    <div class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
+      <dt class="text-sm font-medium text-gray-500 truncate">
+        Total Subscribers
+      </dt>
+      <dd class="mt-1 text-3xl font-semibold text-gray-900">
+        71,897
+      </dd>
+    </div>
+
+    <div class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
+      <dt class="text-sm font-medium text-gray-500 truncate">
+        Avg. Open Rate
+      </dt>
+      <dd class="mt-1 text-3xl font-semibold text-gray-900">
+        58.16%
+      </dd>
+    </div>
+
+    <div class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
+      <dt class="text-sm font-medium text-gray-500 truncate">
+        Avg. Click Rate
+      </dt>
+      <dd class="mt-1 text-3xl font-semibold text-gray-900">
+        24.57%
+      </dd>
+    </div>
+  </dl>
 </div>
-<br>
-<br>
-<br>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <% end %>
+
+      <!-- CTA Section -->
+   

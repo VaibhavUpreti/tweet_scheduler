@@ -10,7 +10,9 @@
         </a>
       </div>
       <div class="-mr-2 -my-2 md:hidden">
-        <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
+        <button 
+        data-header-target="openMenuMobile"
+        type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
           <span class="sr-only">Open menu</span>
           <!-- Heroicon name: outline/menu -->
           <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -25,7 +27,7 @@
             <button data-header-target="openUserMenu" 
             
             type="button" class="text-gray-500 group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" aria-expanded="false">
-              <span>Solutions</span>
+              <span>Features</span>
               <!--
                 Heroicon name: solid/chevron-down
 
@@ -47,17 +49,16 @@
                 To: "opacity-0 -translate-y-1"
             -->
             <div
-             
              class="hidden md:block absolute z-10 top-full inset-x-0 transform shadow-lg bg-white">
               <div
-                          id="menu-dropdown-items"
+            id="menu-dropdown-items"
             data-transition-enter="transition ease-out duration-100"
             data-transition-enter-start="transform opacity-0 scale-95"
             data-transition-enter-end="transform opacity-100 scale-100"
             data-transition-leave="transition ease-in duration-75"
             data-transition-leave-start="transform opacity-100 scale-100"
             data-transition-leave-end="transform opacity-0 scale-95"
- class="hidden max-w-7xl mx-auto grid gap-y-6 px-4 py-6 sm:grid-cols-2 sm:gap-8 sm:px-6 sm:py-8 lg:grid-cols-4 lg:px-8 lg:py-12 xl:py-16">
+            class="hidden max-w-7xl mx-auto grid gap-y-6 px-4 py-6 sm:grid-cols-2 sm:gap-8 sm:px-6 sm:py-8 lg:grid-cols-4 lg:px-8 lg:py-12 xl:py-16">
                 <a href="#" class="-m-3 p-3 flex flex-col justify-between rounded-lg hover:bg-gray-50">
                   <div class="flex md:h-full lg:flex-col">
                     <div class="flex-shrink-0">
@@ -158,13 +159,17 @@
             </div>
           </div>
        
-          <%= link_to "Pricing", pricing_path, class: "text-base font-medium text-gray-500 hover:text-gray-900"%>
 
           <%= link_to "About", about_path, class: "text-base font-medium text-gray-500 hover:text-gray-900"%>
-          
+          <%= link_to "Latest", latest_path, class: "text-base font-medium text-gray-500 hover:text-gray-900"%>
+
+          <%= link_to "Forum", simple_discussion_path, class: "text-base font-medium text-gray-500 hover:text-gray-900"%>
+
           <div>
             <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
-            <button type="button" class="text-gray-500 group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" aria-expanded="false">
+            <button 
+            data-header-target="openMoreMenu"
+            type="button" class="text-gray-500 group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" aria-expanded="false">
               <span>More</span>
               <!--
                 Heroicon name: solid/chevron-down
@@ -186,12 +191,25 @@
                 From: "opacity-100 translate-y-0"
                 To: "opacity-0 -translate-y-1"
             -->
-            <div class="hidden md:block absolute z-10 top-full inset-x-0 transform shadow-lg">
-              <div class="hidden absolute inset-0 flex">
+            <div 
+            
+            class="hidden md:block absolute z-10 top-full inset-x-0 transform shadow-lg">
+              <div 
+              class=" absolute inset-0 flex">
                 <div class="bg-white w-1/2"></div>
                 <div class="bg-gray-50 w-1/2"></div>
               </div>
-              <div class="hidden relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2">
+              <div 
+    
+            id="menu-more-items"
+            data-transition-enter="transition ease-out duration-100"
+            data-transition-enter-start="transform opacity-0 scale-95"
+            data-transition-enter-end="transform opacity-100 scale-100"
+            data-transition-leave="transition ease-in duration-75"
+            data-transition-leave-start="transform opacity-100 scale-100"
+            data-transition-leave-end="transform opacity-0 scale-95"
+
+              class="hidden relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2">
                 <nav class="grid gap-y-10 px-4 py-8 bg-white sm:grid-cols-2 sm:gap-x-8 sm:py-12 sm:px-6 lg:px-8 xl:pr-12">
                   <div>
                     <h3 class="text-sm font-medium tracking-wide text-gray-500 uppercase">
@@ -199,7 +217,7 @@
                     </h3>
                     <ul role="list" class="mt-5 space-y-6">
                       <li class="flow-root">
-                        <a href="#" class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">
+                        <a href="<%= about_path %>" class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">
                           <!-- Heroicon name: outline/information-circle -->
                           <svg class="flex-shrink-0 h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -229,17 +247,17 @@
                       </li>
 
                       <li class="flow-root">
-                        <a href="#" class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">
+                        <a href="<%= tos_path %>" class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">
                           <!-- Heroicon name: outline/briefcase -->
                           <svg class="flex-shrink-0 h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                           </svg>
-                          <span class="ml-4">Careers</span>
+                          <span class="ml-4">TOC</span>
                         </a>
                       </li>
 
                       <li class="flow-root">
-                        <a href="#" class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">
+                        <a href="<%= privacy_path %>" class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">
                           <!-- Heroicon name: outline/shield-check -->
                           <svg class="flex-shrink-0 h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -255,7 +273,7 @@
                     </h3>
                     <ul role="list" class="mt-5 space-y-6">
                       <li class="flow-root">
-                        <a href="#" class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">
+                        <a href="<%= simple_discussion_path %>" class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">
                           <!-- Heroicon name: outline/user-group -->
                           <svg class="flex-shrink-0 h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -299,36 +317,36 @@
                 <div class="bg-gray-50 px-4 py-8 sm:py-12 sm:px-6 lg:px-8 xl:pl-12">
                   <div>
                     <h3 class="text-sm font-medium tracking-wide text-gray-500 uppercase">
-                      From the blog
+                      Latest from the author
                     </h3>
                     <ul role="list" class="mt-6 space-y-6">
                       <li class="flow-root">
-                        <a href="#" class="-m-3 p-3 flex rounded-lg hover:bg-gray-100">
+                        <a href="https://www.vaibhavupreti.me/blog/circuitverse-customise-notifications/" class="-m-3 p-3 flex rounded-lg hover:bg-gray-100">
                           <div class="hidden sm:block flex-shrink-0">
-                            <img class="w-32 h-20 object-cover rounded-md" src="https://images.unsplash.com/photo-1558478551-1a378f63328e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2849&q=80" alt="">
+                            <img class="w-32 h-20 object-cover rounded-md" src="https://user-images.githubusercontent.com/85568177/208179472-400da83b-f59c-4f9a-bf9b-4244fe55f6c4.jpg" alt="notification">
                           </div>
                           <div class="w-0 flex-1 sm:ml-8">
                             <h4 class="text-base font-medium text-gray-900 truncate">
-                              Boost your conversion rate
+                              Customising Notifications in Rails
                             </h4>
                             <p class="mt-1 text-sm text-gray-500">
-                              Eget ullamcorper ac ut vulputate fames nec mattis pellentesque elementum. Viverra tempor id mus.
+                              Simple way to customise notifications which are implemented using noticed gem in rails using ActiveRecord::Store
                             </p>
                           </div>
                         </a>
                       </li>
 
                       <li class="flow-root">
-                        <a href="#" class="-m-3 p-3 flex rounded-lg hover:bg-gray-100">
+                        <a href="https://www.vaibhavupreti.me/blog/statistics/" class="-m-3 p-3 flex rounded-lg hover:bg-gray-100">
                           <div class="hidden sm:block flex-shrink-0">
-                            <img class="w-32 h-20 object-cover rounded-md" src="https://images.unsplash.com/1/apple-gear-looking-pretty.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80" alt="">
+                            <img class="w-32 h-20 rounded-md" src="https://user-images.githubusercontent.com/85568177/202895563-35887f2c-176d-47b0-ab83-8490063b55c7.jpg" alt="stats">
                           </div>
                           <div class="w-0 flex-1 sm:ml-8">
                             <h4 class="text-base font-medium text-gray-900 truncate">
-                              How to use search engine optimization to drive traffic to your site
+                              Visualisation with Javascript and Python
                             </h4>
                             <p class="mt-1 text-sm text-gray-500">
-                              Eget ullamcorper ac ut vulputate fames nec mattis pellentesque elementum. Viverra tempor id mus.
+                              Solving a statistical problem using python and implementing various plots using chart.js in javascript 
                             </p>
                           </div>
                         </a>
@@ -336,7 +354,7 @@
                     </ul>
                   </div>
                   <div class="mt-6 text-sm font-medium">
-                    <a href="#" class="text-indigo-600 hover:text-indigo-500"> View all posts <span aria-hidden="true">&rarr;</span></a>
+                    <a href="https://www.vaibhavupreti.me/blog/" class="text-blue-600 hover:text-blue-500"> View all posts <span aria-hidden="true">&rarr;</span></a>
                   </div>
                 </div>
               </div>
@@ -347,7 +365,7 @@
 
           <%= link_to "Sign in", new_user_session_path, class: "text-base font-medium text-gray-500 hover:text-gray-900"%>
 
-          <%= link_to "Sign up", new_user_registration_path, class: "ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"%>
+          <%= link_to "Sign up", new_user_registration_path, class: "ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700"%>
         </div>
       </div>
     </div>
@@ -363,15 +381,29 @@
       From: "opacity-100 scale-100"
       To: "opacity-0 scale-95"
   -->
-  <div class="hidden absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
-    <div class="hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
+  <div 
+   id="menu-toggle-mobile"
+            data-transition-enter="transition ease-out duration-100"
+            data-transition-enter-start="transform opacity-0 scale-95"
+            data-transition-enter-end="transform opacity-100 scale-100"
+            data-transition-leave="transition ease-in duration-75"
+            data-transition-leave-start="transform opacity-100 scale-100"
+            data-transition-leave-end="transform opacity-0 scale-95"
+
+  class="hidden absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+    <div 
+
+    class=" rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
       <div class="pt-5 pb-6 px-5 sm:pb-8">
         <div class="flex items-center justify-between">
           <div>
           <%= link_to image_tag("https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/1200px-Twitter-logo.svg.png", class: "h-7 w-auto sm:h-10"), root_path, class: "h-7 w-auto sm:h-10"%>
           </div>
           <div class="-mr-2">
-            <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+            <button 
+            
+            onClick="window.location.reload();"
+            type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
               <span class="sr-only">Close menu</span>
               <!-- Heroicon name: outline/x -->
               <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
