@@ -19,10 +19,25 @@
 </div>
 
 
-<div class="container-fluid" style="margin-top: 4px; margin-left: 30px; margin-right: 30px">
+<div class="container-fluid" style=" margin-left: 30px; margin-right: 30px">
       <div class="row">
 <div class="d-flex justify-content-between align-items-center margin">
+<div class="bg-white">
+      <div class="max-w-4xl mx-1 py-16 px-4 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-4 lg:flex lg:items-center lg:justify-between">
+        <h2 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+          <span class="bold ">Connected Twitter Accounts</span>
+        </h2>
+        <div class="mt-6 space-y-4 sm:space-y-0 sm:flex sm:space-x-5">
+          <a href="<%= tweets_path%>" class="flex items-center justify-center bg-gradient-to-r bg-blue-600 hover:bg-blue-600 bg-origin-border px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-s
+          text-white">
+            Access Tweets
+          </a>
+       
+        
+        </div>
 
+      </div>
+    </div>
 <% @twitter_accounts.each do |twitter_account| %>
 
 
@@ -67,3 +82,7 @@
 
 
 
+<br>
+<br>
+<hr>
+<br>
